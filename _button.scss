@@ -1,0 +1,59 @@
+////
+/// Button
+/// @group button
+/// @author Brett Mason
+///
+/// @example
+///		.button {
+///			@include button($bg-color: orange, $color: white);
+///		}
+////
+
+@mixin button(
+    $padding: 0.85em 1em,
+    $bg-color: null,
+    $color: null,
+    $bg-color-hover: null,
+    $color-hover: null,
+    $border: null,
+    $border-hover: null,
+    $radius: null,
+    $margin: 0,
+    $font: inherit,
+    $auto-adjust: 15%
+) {
+    @if $bg-color and $bg-color-hover == null {
+        $bg-color-hover: lighten($bg-color, $auto-adjust);
+    }
+
+    @if $color and $color-hover == null {
+        $color-hover: lighten($color, $auto-adjust);
+    }
+
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+
+    font: $font;
+    margin: $margin;
+    padding: $padding;
+    background-color: $bg-color;
+    color: $color;
+    border: $border;
+    border-radius: $radius;
+
+    &:hover,
+    &:focus {
+        background-color: $bg-color-hover;
+        color: $color-hover;
+
+        // If $border-hover is a single value, assume its a color
+        @if type-of($border-hover) != 'list' and $border-hover != null {
+            border-color: $border-hover;
+        }
+        @else {
+            border: $border-hover;
+        }
+    }
+}
