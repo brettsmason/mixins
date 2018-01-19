@@ -1,0 +1,37 @@
+////
+/// Box
+/// @group box
+/// @author Brett Mason
+///
+/// @example
+///		.box {
+///			@include box(3rem);
+///		}
+///
+///     .orange-box {
+///         @include box(1rem, orange, white);
+///     }
+////
+
+@mixin box(
+    $padding: 1rem,
+    $bg-color: null,
+    $color: null,
+    $border: null,
+    $border-radius: null,
+    $box-shadow: null
+) {
+    position: relative;
+    display: block;
+    padding: $padding;
+    background-color: $bg-color;
+    color: $color;
+    border: $border;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    // Remove margin from the last element
+    > :last-child {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,52 @@
+////
+/// Media Object
+/// @group media
+/// @author Brett Mason
+///
+/// @example
+///		.media {
+///			@include media;
+///
+///			&__body {
+///        		@include media__body;
+///    		}
+///
+///    		&__figure {
+///        		@include media__figure(1rem);
+///    		}
+///		}
+////
+
+@mixin media {
+    display: flex;
+}
+
+@mixin media__body {
+    flex: 1 1 auto;
+
+    &,
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+@mixin media__figure(
+    $margin: 1rem,
+    $align-right: false,
+    $max-width: none
+) {
+    @if $align-right {
+        margin-left: $margin;
+        margin-right: 0;
+        order: 1;
+    }
+    @else {
+        margin-left: 0;
+        margin-right: $margin;
+    }
+
+	// Make sure any images aren't stretched
+    > img {
+        max-width: $max-width;
+    }
+}

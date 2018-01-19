@@ -1,0 +1,25 @@
+////
+/// Wrapper
+/// @group wrapper
+/// @author Brett Mason
+///
+/// @example
+///		.wrapper {
+///			@include wrapper(2rem, 960px);
+///		}
+///
+///     .wrapper-full {
+///         @include wrapper(1rem, 100%);
+///     }
+////
+
+@mixin wrapper(
+    $padding: 1rem,
+    $max-width: 65rem
+) {
+    padding-right: $padding;
+    padding-left: $padding;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: $max-width;
+}
