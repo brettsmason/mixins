@@ -1,0 +1,47 @@
+////
+/// Hero
+/// @group hero
+/// @author Brett Mason
+///
+/// @example
+///		.hero {
+///			@include hero;
+///
+///			&__content {
+///        		@include hero__content;
+///    		}
+///		}
+////
+
+@mixin hero(
+    $height: 500px,
+    $align: center center,
+    $overlay: rgba(0, 0, 0, 0.7)
+) {
+    @if length($align) != 2 {
+        @error '`$align` should be a list containing 2 keywords.';
+    }
+
+    display: flex;
+    min-height: $height;
+    align-items: nth($align, 1);
+    justify-content: nth($align, 2);
+
+    @if $overlay {
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            background-color: $overlay;
+        }
+    }
+}
+
+@mixin hero__content {
+    position: relative;
+    z-index: 2;
+}
