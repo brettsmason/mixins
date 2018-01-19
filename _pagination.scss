@@ -1,0 +1,28 @@
+////
+/// Pagination
+/// @group pagination
+/// @author Brett Mason
+///
+/// @example
+///		.pagination {
+///			@include pagination;
+///
+///			&__link {
+///        		@include pagination__link;
+///    		}
+///		}
+////
+
+@mixin pagination {
+    display: flex;
+    list-style: none;
+}
+
+@mixin pagination__link(
+    $padding: 0.5rem 0.75rem,
+    $border: null
+) {
+    display: block;
+    padding: $padding;
+    border: $border;
+}
