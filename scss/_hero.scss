@@ -1,18 +1,15 @@
 ////
-/// Hero
 /// @group hero
-/// @author Brett Mason
-///
-/// @example
-///		.hero {
-///			@include hero;
-///
-///			&__content {
-///        		@include hero__content;
-///    		}
-///		}
 ////
 
+/// A hero component. This applies the styles to the hero container.
+/// @example
+/// .hero {
+///   @include hero(100vh);
+/// }
+/// @param {String} $height [500px]               - Minimum height
+/// @param {List}   $align [center center]        - The flex position of the overlaid content. Sets align-items and justify-content.
+/// @param {Color}  $overlay [rgba(0, 0, 0, 0.7)] - The color of the overlay. Set to `null` for no overlay.
 @mixin hero(
     $height: 500px,
     $align: center center,
@@ -41,6 +38,11 @@
     }
 }
 
+/// Styling for the hero content which sits on top of the container.
+/// @example
+/// .hero__content {
+///   @include hero__content;
+/// }
 @mixin hero__content {
     position: relative;
     z-index: 2;
