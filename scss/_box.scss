@@ -1,0 +1,42 @@
+////
+/// @group box
+/// @author Brett Mason
+///
+
+/// A simple padded box which boxes off content which can be extended with optional styles.
+/// @example
+/// .box {
+///   @include box(3rem);
+/// }
+///
+/// .orange-box {
+///   @include box(1rem, orange, white);
+/// }
+/// @param {String|List} $padding [1rem]       - padding
+/// @param {Color}       $bg-color [null]      - background colour
+/// @param {Color}       $color [null]         - text color
+/// @param {list}        $border [null]        - border for the box
+/// @param {String|List} $border-radius [null] - border radius
+/// @param {String|List} $box-shadow [null]    - box shadow
+@mixin box(
+    $padding: 1rem,
+    $bg-color: null,
+    $color: null,
+    $border: null,
+    $border-radius: null,
+    $box-shadow: null
+) {
+    position: relative;
+    display: block;
+    padding: $padding;
+    background-color: $bg-color;
+    color: $color;
+    border: $border;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    // Remove margin from the last element
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
