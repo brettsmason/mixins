@@ -10,7 +10,6 @@
 ////
 
 @mixin button(
-    $padding: 0.85em 1em,
     $bg-color: null,
     $color: null,
     $bg-color-hover: null,
@@ -18,6 +17,7 @@
     $border: null,
     $border-hover: null,
     $radius: null,
+    $padding: 0.85em 1em,
     $margin: 0,
     $font: inherit,
     $auto-adjust: 15%
